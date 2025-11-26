@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Tutorials - Talegaon Dabhade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Student Animation CSS */
+        .student-anim-container {
+            position: relative;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .floating-student {
+            animation: float 3s ease-in-out infinite;
+            font-size: 8rem;
+            color: #3b82f6;
+            z-index: 10;
+        }
+
+        .book-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: #ef4444;
+            opacity: 0;
+            animation: bookFly 4s infinite;
+        }
+
+        .book-1 { top: 20%; left: 20%; animation-delay: 0s; }
+        .book-2 { top: 30%; right: 20%; animation-delay: 1.5s; }
+        .book-3 { top: 10%; right: 40%; animation-delay: 2.5s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes bookFly {
+            0% { transform: translateY(20px) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-50px) scale(1); opacity: 0; }
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1e3a8a, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-graduation-cap text-3xl text-blue-600"></i>
+                <span class="text-2xl font-bold text-blue-900">Max <span class="text-red-600">Tutorials</span></span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Language Selector -->
+                <select id="langSelect" onchange="changeLanguage()" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी (Hindi)</option>
+                    <option value="mr">मराठी (Marathi)</option>
+                </select>
+                
+                <a href="#contact" class="hidden md:block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" data-key="callNow">
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Animation -->
+    <section class="pt-24 pb-12 md:pt-32 md:pb-20 bg-white">
+        <div class="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-4" data-key="tagline">Rapid Growth</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    <span data-key="heroTitle">No.1 Coaching Institute in Maval</span> 
+                    <br>
+                    <span class="gradient-text" data-key="heroSubtitle">For State Board & CBSE</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8" data-key="heroDesc">
+                    Empowering students from 8th to 10th grade to achieve their best. Join the toppers league today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#admissions" class="bg-blue-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition" data-key="admissionsBtn">
+                        Admissions Open
+                    </a>
+                    <a href="#contact" class="border-2 border-blue-900 text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-blue-50 transition" data-key="contactBtn">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Student Animation Area -->
+            <div class="md:w-1/2 w-full">
+                <div class="student-anim-container">
+                    <!-- Central Animated Character (Using FontAwesome for simplicity and scalability) -->
+                    <i class="fas fa-user-graduate floating-student"></i>
+                    
+                    <!-- Floating Elements around -->
+                    <i class="fas fa-book-open book-icon book-1"></i>
+                    <i class="fas fa-atom book-icon book-2" style="color: orange;"></i>
+                    <i class="fas fa-calculator book-icon book-3" style="color: green;"></i>
+                </div>
+                <p class="text-center text-gray-400 text-sm italic mt-2" data-key="animCaption">Visualizing Student Success</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Uploaded Flyers Gallery -->
+    <section id="gallery" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12" data-key="galleryTitle">Our Achievements & Offers</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Image 1 Container -->
+                <div class="bg-white p-2 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <img src="129028.jpg" alt="Max Tutorials State Board Flyer" class="w-full h-auto rounded-lg" onerror="this.src='https://placehold.co/600x400?text=Flyer+Image+1+Not+Found'; this.nextElementSibling.style.display='block'">
+                    <p class="text-red-500 text-xs text-center mt-2 hidden">Make sure '129028.jpg' is in the same folder.</p>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl text-blue-900">State Board Excellence</h3>
+                        <p class="text-gray-600">Term 2 Admissions Open for Std 8 & 9.</p>
+                    </div>
+                </div>
+
+                <!-- Image 2 Container -->
+                <div class="bg-white p-2 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <img src="129026.jpg" alt="Max Tutorials CBSE Flyer" class="w-full h-auto rounded-lg" onerror="this.src='https://placehold.co/600x400?text=Flyer+Image+2+Not+Found'; this.nextElementSibling.style.display='block'">
+                    <p class="text-red-500 text-xs text-center mt-2 hidden">Make sure '129026.jpg' is in the same folder.</p>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl text-red-600">CBSE Best Coaching</h3>
+                        <p class="text-gray-600">Celebrating our Toppers and High Achievers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toppers Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-key="toppersTitle">Hall of Fame</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Topper 1 -->
+                <div class="bg-blue-50 p-6 rounded-xl text-center card-hover transition duration-300 border-t-4 border-blue-600">
+                    <div class="w-20 h-20 bg-blue-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">🥇</div>
+                    <h3 class="text-xl font-bold text-gray-800">Medhansh Pathak</h3>
+                    <p class="text-blue-600 font-semibold">1st Rank</p>
+                    <p class="text-sm text-gray-500">9th Balvikas</p>
+                </div>
+
+                <!-- Topper 2 -->
+                <div class="bg-red-50 p-6 rounded-xl text-center card-hover transition duration-300 border-t-4 border-red-600">
+                    <div class="w-20 h-20 bg-red-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">🏆</div>
+                    <h3 class="text-xl font-bold text-gray-800">Siddharth Patil</h3>
+                    <p class="text-red-600 font-semibold">CBSE 2024 Topper (96%)</p>
+                    <p class="text-sm text-gray-500">Podar International School</p>
+                </div>
+
+                <!-- Topper 3 -->
+                <div class="bg-blue-50 p-6 rounded-xl text-center card-hover transition duration-300 border-t-4 border-blue-600">
+                    <div class="w-20 h-20 bg-blue-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">🥈</div>
+                    <h3 class="text-xl font-bold text-gray-800">Vedika Shinde</h3>
+                    <p class="text-blue-600 font-semibold">2nd Rank</p>
+                    <p class="text-sm text-gray-500">9th Balvikas</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Branches Section -->
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6" data-key="contactTitle">Contact Us</h2>
+                    <p class="mb-8 text-gray-400" data-key="contactDesc">Visit our branches or call us for admissions.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-red-500"></i>
+                            <div>
+                                <h4 class="font-bold text-lg" data-key="branch1Name">Station Branch</h4>
+                                <p class="text-sm text-gray-400" data-key="branch1Addr">2nd Floor, Above Parekh Studio, Rajgurav Colony, Near Jain Mandir, Talegaon Dabhade (Station).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-red-500"></i>
+                            <div>
+                                <h4 class="font-bold text-lg" data-key="branch2Name">Maruti Mandir Branch</h4>
+                                <p class="text-sm text-gray-400" data-key="branch2Addr">3rd Floor, Samarth Building, Above Bhosle Amrutulya, Maruti Mandir Chowk Road, Talegaon Dabhade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-6" data-key="callUs">Call Us Directly</h3>
+                    <div class="flex flex-col space-y-4">
+                        <a href="tel:9960041981" class="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition">
+                            <i class="fas fa-phone-alt mr-2"></i> 9960041981
+                        </a>
+                        <a href="tel:9096796376" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition">
+                            <i class="fas fa-phone-alt mr-2"></i> 9096796376
+                        </a>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+                        <p>© 2024 Max Tutorials. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Translation -->
+    <script>
+        const translations = {
+            en: {
+                callNow: "Call Now",
+                tagline: "Rapid Growth",
+                heroTitle: "No.1 Coaching Institute in Maval",
+                heroSubtitle: "For State Board & CBSE",
+                heroDesc: "Empowering students from 8th to 10th grade to achieve their best. Join the toppers league today.",
+                admissionsBtn: "Admissions Open",
+                contactBtn: "Contact Us",
+                animCaption: "Visualizing Student Success",
+                galleryTitle: "Our Achievements & Offers",
+                toppersTitle: "Hall of Fame",
+                contactTitle: "Contact Us",
+                contactDesc: "Visit our branches or call us for admissions.",
+                branch1Name: "Station Branch",
+                branch1Addr: "2nd Floor, Above Parekh Studio, Rajgurav Colony, Near Jain Mandir, Talegaon Dabhade (Station).",
+                branch2Name: "Maruti Mandir Branch",
+                branch2Addr: "3rd Floor, Samarth Building, Above Bhosle Amrutulya, Maruti Mandir Chowk Road, Talegaon Dabhade.",
+                callUs: "Call Us Directly"
+            },
+            hi: {
+                callNow: "कॉल करें",
+                tagline: "तेजी से विकास",
+                heroTitle: "मावल का नंबर 1 कोचिंग संस्थान",
+                heroSubtitle: "स्टेट बोर्ड और सीबीएसई के लिए",
+                heroDesc: "8वीं से 10वीं कक्षा के छात्रों को अपना सर्वश्रेष्ठ हासिल करने के लिए सशक्त बनाना। आज ही टॉपर्स लीग में शामिल हों।",
+                admissionsBtn: "प्रवेश शुरू",
+                contactBtn: "संपर्क करें",
+                animCaption: "छात्र की सफलता की कल्पना",
+                galleryTitle: "हमारी उपलब्धियां और प्रस्ताव",
+                toppersTitle: "हॉल ऑफ फेम",
+                contactTitle: "संपर्क करें",
+                contactDesc: "प्रवेश के लिए हमारी शाखाओं पर जाएँ या हमें कॉल करें।",
+                branch1Name: "स्टेशन ब्रांच",
+                branch1Addr: "दूसरी मंजिल, पारेख स्टूडियो के ऊपर, राजगुरव कॉलोनी, जैन मंदिर के पास, तलेगांव दाभाड़े (स्टेशन)।",
+                branch2Name: "मारुति मंदिर ब्रांच",
+                branch2Addr: "तीसरी मंजिल, समर्थ बिल्डिंग, भोसले अमृततुल्य के ऊपर, मारुति मंदिर चौक रोड, तलेगांव दाभाड़े।",
+                callUs: "हमें कॉल करें"
+            },
+            mr: {
+                callNow: "कॉल करा",
+                tagline: "जलद वाढ",
+                heroTitle: "मावळमधील नंबर 1 कोचिंग इन्स्टिट्यूट",
+                heroSubtitle: "स्टेट बोर्ड आणि सीबीएसई साठी",
+                heroDesc: "८वी ते १०वी च्या विद्यार्थ्यांना त्यांचे सर्वोत्तम साध्य करण्यासाठी सक्षम करणे. आजच टॉपर्स लीगमध्ये सामील व्हा.",
+                admissionsBtn: "प्रवेश सुरू",
+                contactBtn: "संपर्क करा",
+                animCaption: "विद्यार्थ्यांच्या यशाचे दृश्य",
+                galleryTitle: "आमची कामगिरी आणि ऑफर्स",
+                toppersTitle: "यशवंत विद्यार्थी",
+                contactTitle: "संपर्क साधा",
+                contactDesc: "प्रवेशासाठी आमच्या शाखांना भेट द्या किंवा आम्हाला कॉल करा.",
+                branch1Name: "स्टेशन शाखा",
+                branch1Addr: "२रा मजला, पारेख स्टुडिओच्या वर, राजगुरव कॉलनी, जैन मंदिराजवळ, तळेगाव दाभाडे (स्टेशन).",
+                branch2Name: "मारुती मंदिर शाखा",
+                branch2Addr: "३रा मजला, समर्थ बिल्डिंग, भोसले अमृततुल्यच्या वर, मारुति मंदिर चौक रोड, तळेगाव दाभाडे.",
+                callUs: "आम्हाला थेट कॉल करा"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('langSelect').value;
+            const elements = document.querySelectorAll('[data-key]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    // Fade out effect
+                    element.style.opacity = 0;
+                    setTimeout(() => {
+                        element.textContent = translations[lang][key];
+                        element.style.transition = 'opacity 0.3s';
+                        element.style.opacity = 1;
+                    }, 200);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
